@@ -1,12 +1,8 @@
-import os
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 from datetime import datetime, timedelta
 from utils import fetch_energy_data, process_pricing_data
-
-# Get the PORT environment variable (default to 8080 if not set)
-PORT = int(os.getenv("PORT", 8080))
 
 # Page configuration
 st.set_page_config(
@@ -52,7 +48,8 @@ with col1:
 with col2:
     end_date = st.date_input(
         "End Date",
-        datetime.now().date()
+        datetime.now().date(),
+       # min_value=start_date  # Only keep this constraint to ensure end_date isn't before start_date I removed it because it was causing an error. 
     )
 
 def fetch_and_display_data():
@@ -144,7 +141,3 @@ if st.button("Refresh Data"):
 # Footer
 st.markdown("---")
 st.markdown("Data provided by GridX Energy Pricing API")
-
-# Start Streamlit on the correct port
-if __name__ == "__main__":
-    st.run(server.port=PORT, server.address="0.0.0.0")
