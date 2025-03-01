@@ -20,7 +20,7 @@ def fetch_energy_data(start_date, end_date):
         "market": "DAM",
         "startdate": start_date,
         "enddate": end_date,
-        "ratename": "EV2AS",
+        "ratename": "EV2A",
         "representativeCircuitId": "024040403",
         "program": "CalFUSE"
     }
