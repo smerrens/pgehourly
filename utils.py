@@ -57,7 +57,7 @@ def process_pricing_data(data):
                 if datetime_str and price is not None:
                     try:
                         # Parse datetime (format: '2025-02-08T00:00:00-0800')
-                        dt = datetime.strptime(datetime_str.split('-0800')[0], '%Y-%m-%dT%H:%M:%S')
+                        dt = datetime.strptime(datetime_str.split('-0700')[0], '%Y-%m-%dT%H:%M:%S')
                         pricing_data.append({
                             'datetime': dt,
                             'price': float(price)
